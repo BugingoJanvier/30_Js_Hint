@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS + CSS Clock</title>
+  <link rel="icon" href="https://fav.farm/✅" />
+</head>
+<body>
+
+
+    <div class="clock">
+        <div class="clock-face">
+            <div class="hand hour-hand"></div>
+            <div class="hand min-hand"></div>
+            <div class="hand second-hand"></div>
+          </div>
+    </div>
+
+    <style>
+        html {
+          background: #018DED url(https://unsplash.it/1500/1000?image=881&blur=5);
+          background-size: cover;
+          font-family: 'helvetica neue';
+          text-align: center;
+          font-size: 10px;
+        }
+        
+        body {
+            margin: 0;
+            font-size: 2rem;
+            display: flex;
+            flex: 1;
+            min-height: 100vh;
+            align-items: center;
+            justify-content: center; 
+        }
+
+        .clock{
+            width: 30rem;
+            height: 30rem;
+            border: 20px solid rgb(250, 250, 250);
+            border-radius: 40%;
+            margin: 50px auto;  
+            position: relative;        
+        }
+        .hand{
+            width: 50%;
+            height: 5px;
+            background: rgb(45, 201, 6);
+            position: absolute;
+            top: 50%;
+            transform-origin: 100%;
+            transform: rotate(90deg);
+            transition: all 0.05s;
+        }
+        .second-hand{
+            background: #c0392b;
+        }
+        .min-hand{
+            background: #f3ef03;
+        }   
+    </style>
+
+<script >
+ function setDate()
+ {
+   
+    const now = new Date();
+    const seconds = now.getSeconds();
+    const secondsDegrees = ((seconds / 60) * 360) + 90;
+    const secondHand = document.querySelector('.second-hand');
+    secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
+
+    const mins = now.getMinutes();
+    const minsDegrees = ((mins / 60) * 360) + 90;
+    const minHand = document.querySelector('.min-hand');
+    minHand.style.transform = `rotate(${minsDegrees}deg)`;
+
+    const hours = now.getHours();
+    const hoursDegrees = ((hours / 12) * 360) + 90;
+    const hourHand = document.querySelector('.hour-hand');
+    hourHand.style.transform = `rotate(${hoursDegrees}deg)`;
+    
+ }
+
+ setInterval(setDate, 1000);
+
+</script>
+
+</body></html>

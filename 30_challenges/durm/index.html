@@ -64,13 +64,10 @@
      const key = document.querySelector(`.key[data-key="${e.keyCode}"]`); // select the key element with the data-key attribute that matches the key code
      
      if(!audio) return;                 // stop the function from running all together
-
         audio.currentTime = 0;          // rewind to the start time of the audio file
         audio.play();                   // play the audio file
         key.classList.add('playing');   // add the class of playing to the key element
-
     }
-
 );
 
 function removeTransition(e) {
@@ -78,8 +75,8 @@ function removeTransition(e) {
   this.classList.remove('playing');
 }
 
-const keys = document.querySelectorAll('.key');
-keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+const keys = document.querySelectorAll('.key'); // select all the keys
+keys.forEach(key => key.addEventListener('transitionend', removeTransition)); // listen for the transition end event on each key
 
 </script>
 

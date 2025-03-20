@@ -78,8 +78,9 @@ function removeTransition(e) {
   this.classList.remove('playing');
 }
 
-const keys = document.querySelectorAll('.key');
-keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+const keys = document.querySelectorAll('.key'); // select all the keys
+keys.forEach(key => key.addEventListener('transitionend', removeTransition)); // listen for the transition end event on each key
+
 
 </script>
 
